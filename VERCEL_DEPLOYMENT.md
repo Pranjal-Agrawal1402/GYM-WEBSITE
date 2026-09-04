@@ -25,9 +25,9 @@ Before deploying, click **"Environment Variables"** and add:
 | Key | Value |
 |-----|-------|
 | `NODE_ENV` | `production` |
-| `SESSION_SECRET` | `22205785f668be1f58acee65c7bbcbcf7913e84f305dc5a8d9643f58c5357608` |
+| `SESSION_SECRET` | Generate a new long random value locally. |
 | `ADMIN_USERNAME` | `admin` |
-| `ADMIN_PASSWORD_HASH` | `$2a$12$Qi/MoUkfJ2YsTxqF4C5G8uiqqyVPU7/DEtbSk6deQitUp5DzPeQB.` |
+| `ADMIN_PASSWORD_HASH` | Generate a bcrypt hash locally with `npm run set-admin-password`. |
 | `PORT` | `3000` |
 
 ## Step 4: Deploy!
@@ -73,7 +73,7 @@ Vercel's serverless functions have ephemeral storage, meaning `data/entries.json
    - Visit homepage
    - Test contact form
    - Access admin at `/admin`
-   - Log in with: `admin` / `GymAdmin2024!`
+   - Log in with the configured admin username and password
 3. **Fix data persistence** using one of the options above
 4. **Configure custom domain** (optional, in Vercel settings)
 
