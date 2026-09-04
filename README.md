@@ -2,7 +2,7 @@
 
 A gym website with a working contact form, an admin dashboard for viewing enquiries, and a proper multi-page structure. Originally a static single-page template; now a small Node.js app so form submissions actually go somewhere.
 
-LIVE DEMO(https://gymwebsite-pj548fyko-pranjal13.vercel.app/)
+{LIVE DEMO}(https://gymwebsite-pj548fyko-pranjal13.vercel.app/)
 
 ## Technologies Used
 
