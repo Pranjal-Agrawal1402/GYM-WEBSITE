@@ -1,0 +1,72 @@
+<%- include('partials/head', { pageTitle, metaDescription }) %>
+<%- include('partials/header', { site, activeNav }) %>
+
+<%- include('partials/page-header', {
+	eyebrow: 'Get In Touch',
+	title: 'Contact Us',
+	subtitle: 'Questions about memberships, training, or classes? Send us a message.'
+}) %>
+
+<!-- Start Contact -->
+<section class="contact" id="contact">
+	<div class="container">
+		<% if (preselectedPlan) { %>
+			<div class="contact-plan-banner">
+				Enquiring about the <strong><%= preselectedPlan.name %></strong> plan (<%= preselectedPlan.price %>). <a href="/contact">Not the right plan? Clear selection.</a>
+			</div>
+		<% } %>
+		<div class="content">
+			<div class="box form wow slideInLeft">
+				<div id="form-status" class="form-status" role="alert"></div>
+				<form id="contact-form" novalidate>
+					<!-- Honeypot: hidden from real visitors, often filled in by bots -->
+					<div class="honeypot-field" aria-hidden="true">
+						<label for="website">Leave this field empty</label>
+						<input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+					</div>
+
+					<input type="hidden" name="plan" value="<%= preselectedPlan ? preselectedPlan.name : '' %>">
+
+					<input type="text" name="name" placeholder="Enter Name" required minlength="2">
+					<span class="field-error" data-error-for="name"></span>
+
+					<input type="text" name="email" placeholder="Enter Email" required>
+					<span class="field-error" data-error-for="email"></span>
+
+					<input type="text" name="mobile" placeholder="Enter Mobile (optional)">
+					<span class="field-error" data-error-for="mobile"></span>
+
+					<textarea name="message" placeholder="Enter Message" required minlength="10"></textarea>
+					<span class="field-error" data-error-for="message"></span>
+
+					<button type="submit" id="contact-submit">Send Message</button>
+				</form>
+			</div>
+			<div class="box text wow slideInRight">
+				<h2>Get Connected with Gym</h2>
+				<p class="title-p">Have questions about our memberships, training programs, or fitness classes? Get in touch with us and our team will be happy to help you choose the right fitness plan for your goals.</p>
+				<div class="info">
+					<ul>
+						<li><span class="fa fa-map-marker"></span> <a href="https://www.google.com/maps/search/?api=1&amp;query=<%= encodeURIComponent(site.contact.address) %>" target="_blank" rel="noopener noreferrer"><%= site.contact.address %></a></li>
+						<li><span class="fa fa-phone"></span> <%= site.contact.phone %></li>
+						<li><span class="fa fa-envelope"></span> <%= site.contact.email %></li>
+					</ul>
+				</div>
+				<div class="social">
+					<a href="<%= site.contact.social.facebook %>" target="_blank" rel="noopener noreferrer">
+						<span class="fa fa-facebook"></span></a>
+					<a href="<%= site.contact.social.instagram %>" target="_blank" rel="noopener noreferrer">
+						<span class="fa fa-instagram"></span></a>
+					<a href="<%= site.contact.social.whatsapp %>" target="_blank" rel="noopener noreferrer">
+						<span class="fa fa-whatsapp"></span></a>
+					<a href="<%= site.contact.social.youtube %>" target="_blank" rel="noopener noreferrer">
+						<span class="fa fa-youtube-play"></span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Contact -->
+
+<%- include('partials/footer', { site }) %>
+<%- include('partials/scripts') %>

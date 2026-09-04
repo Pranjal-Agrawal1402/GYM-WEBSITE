@@ -1,0 +1,45 @@
+<%- include('partials/head', { pageTitle, metaDescription }) %>
+<%- include('partials/header', { site, activeNav }) %>
+
+<%- include('partials/page-header', {
+	eyebrow: 'Membership',
+	title: 'Choose Your Package',
+	subtitle: 'Simple monthly plans with no long-term contracts. Switch or cancel any time.'
+}) %>
+
+<!-- Start Price -->
+<section class="price-package" id="price">
+	<div class="container">
+		<div class="content" style="padding-top:20px;">
+			<% site.plans.forEach(function(plan, i) { %>
+				<div class="box wow bounceInUp" <% if (i > 0) { %>data-wow-delay="<%= i * 0.2 %>s"<% } %>>
+					<div class="inner">
+						<div class="price-tag"><%= plan.price %></div>
+						<div class="img">
+							<img src="/images/<%= plan.image %>" alt="<%= plan.name %>" />
+						</div>
+						<div class="text">
+							<h3><%= plan.tagline %></h3>
+							<% plan.features.forEach(function(feature) { %>
+								<p><%= feature %></p>
+							<% }); %>
+							<a href="/contact?plan=<%= encodeURIComponent(plan.name) %>" class="btn">Join Now</a>
+						</div>
+					</div>
+				</div>
+			<% }); %>
+		</div>
+	</div>
+</section>
+<!-- End Price -->
+
+<!-- Start FAQ note -->
+<section class="our-story">
+	<div class="container">
+		<p class="our-story-text wow fadeIn">All plans include full access to the gym floor and locker rooms. Not sure which one fits? <a href="/contact" style="color:#c11325;text-decoration:underline;">Get in touch</a> and we'll help you pick.</p>
+	</div>
+</section>
+<!-- End FAQ note -->
+
+<%- include('partials/footer', { site }) %>
+<%- include('partials/scripts') %>

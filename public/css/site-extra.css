@@ -1,0 +1,465 @@
+/* ==========================================================================
+   Additions on top of style.css — footer, page-header banners, teasers,
+   contact form states, and the 404 page. Kept separate from style.css so
+   the original template styles stay easy to diff and reuse.
+   ========================================================================== */
+
+/* ---- Generic section CTA (centered button under a section) ---- */
+.section-cta {
+	text-align: center;
+	padding-top: 30px;
+}
+.classes-cta,
+.schedule-cta {
+	text-align: center;
+	padding: 40px 15px;
+}
+.section-cta .btn,
+.classes-cta .btn,
+.schedule-cta .btn {
+	display: inline-block;
+	font-family: 'Oswald', sans-serif;
+	padding: 10px 34px;
+	background-color: #c11325;
+	color: #ffffff;
+	text-decoration: none;
+	border: 1px solid transparent;
+	cursor: pointer;
+	transition: all .5s ease;
+}
+.section-cta .btn:hover,
+.classes-cta .btn:hover,
+.schedule-cta .btn:hover {
+	background-color: transparent;
+	border-color: #c11325;
+	color: #ffffff;
+}
+/* On light/red section backgrounds, invert so the button stays legible */
+.price-package .section-cta .btn,
+.gallery .section-cta .btn {
+	background-color: #222222;
+}
+.price-package .section-cta .btn:hover,
+.gallery .section-cta .btn:hover {
+	border-color: #222222;
+}
+.btn-outline {
+	display: inline-block;
+	padding: 8px 30px;
+	border: 1px solid #ffffff;
+	color: #ffffff;
+	text-decoration: none;
+	background-color: transparent;
+	cursor: pointer;
+	transition: all .5s ease;
+}
+.btn-outline:hover {
+	background-color: #ffffff;
+	color: #222222;
+}
+.price-package .section-cta .btn-outline {
+	border-color: #222222;
+	color: #222222;
+}
+.price-package .section-cta .btn-outline:hover {
+	background-color: #222222;
+	color: #ffffff;
+}
+
+/* ---- Page header banner (used at the top of every subpage) ---- */
+.page-header {
+	padding: 160px 15px 60px;
+	background-color: #000000;
+	background-image: linear-gradient(180deg, rgba(193,19,37,0.15), rgba(0,0,0,0) 70%);
+	text-align: center;
+	border-bottom: 1px solid #222222;
+}
+.page-header-eyebrow {
+	display: inline-block;
+	font-family: 'Oswald', sans-serif;
+	font-size: 13px;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: #c11325;
+	font-weight: 600;
+	margin-bottom: 12px;
+}
+.page-header h1 {
+	font-size: 42px;
+	color: #ffffff;
+	font-weight: 600;
+	margin: 0 0 12px;
+}
+.page-header p {
+	font-family: 'Open Sans', sans-serif;
+	color: #c5c5c5;
+	font-size: 16px;
+	max-width: 560px;
+	margin: 0 auto;
+	line-height: 24px;
+}
+
+/* ---- Home page: services teaser ---- */
+.home-teaser {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+.home-teaser-text {
+	flex: 0 0 50%;
+	max-width: 50%;
+	padding: 15px;
+}
+.home-teaser-text h2 {
+	font-size: 30px;
+	font-weight: 500;
+	color: #ffffff;
+	padding: 0 0 20px;
+}
+.home-teaser-text p {
+	font-size: 15px;
+	line-height: 20px;
+	color: #ffffff;
+	margin: 0;
+	padding: 0 0 20px;
+	font-family: 'Open Sans', sans-serif;
+}
+.home-teaser-chips {
+	flex: 0 0 50%;
+	max-width: 50%;
+	padding: 15px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+.home-teaser-chips .chip {
+	background-color: rgba(0,0,0,0.2);
+	color: #ffffff;
+	font-family: 'Oswald', sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 12px 16px;
+	flex: 1 1 calc(50% - 10px);
+	text-align: center;
+	border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ---- About page: story + stats ---- */
+.our-story {
+	background-color: #222222;
+	padding: 60px 15px 10px;
+}
+.our-story-text {
+	max-width: 760px;
+	margin: 0 auto;
+	text-align: center;
+	color: #ffffff;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	line-height: 26px;
+}
+.stats-strip {
+	background-color: #000000;
+	padding: 60px 15px;
+}
+.stats-grid {
+	max-width: 1170px;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.stat {
+	flex: 0 0 25%;
+	max-width: 25%;
+	text-align: center;
+	padding: 15px;
+}
+.stat-number {
+	display: block;
+	font-family: 'Oswald', sans-serif;
+	font-size: 42px;
+	font-weight: 700;
+	color: #c11325;
+	line-height: 1.1;
+}
+.stat-label {
+	display: block;
+	font-family: 'Oswald', sans-serif;
+	font-size: 13px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: #c5c5c5;
+	margin-top: 8px;
+}
+
+/* ---- Classes / schedule page CTA link under table ---- */
+.schedule-cta,
+.classes-cta {
+	text-align: center;
+	padding: 40px 15px 0;
+	background-color: #222222;
+}
+
+/* ---- Contact page ---- */
+.contact-plan-banner {
+	max-width: 1170px;
+	margin: 0 auto 25px;
+	padding: 14px 20px;
+	background-color: rgba(193,19,37,0.12);
+	border: 1px solid #c11325;
+	color: #ffffff;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+.contact-plan-banner strong {
+	color: #ffffff;
+	font-family: 'Oswald', sans-serif;
+}
+.contact-plan-banner a {
+	color: #c5c5c5;
+}
+
+.field-error {
+	display: block;
+	color: #ff8a93;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	margin: -20px 0 15px;
+}
+.contact .content .form input.has-error,
+.contact .content .form textarea.has-error {
+	border-color: #c11325;
+}
+
+.form-status {
+	display: none;
+	padding: 14px 16px;
+	margin-bottom: 20px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	border: 1px solid transparent;
+}
+.form-status.visible {
+	display: block;
+}
+.form-status.success {
+	background-color: rgba(59,165,93,0.12);
+	border-color: #3ba55d;
+	color: #ffffff;
+}
+.form-status.error {
+	background-color: rgba(193,19,37,0.12);
+	border-color: #c11325;
+	color: #ffffff;
+}
+.contact .content .form button[disabled] {
+	opacity: .6;
+	cursor: not-allowed;
+}
+.honeypot-field {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+/* ---- Sitewide footer ---- */
+.site-footer {
+	background-color: #000000;
+	border-top: 1px solid #222222;
+	padding: 60px 0 0;
+}
+.site-footer-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	padding-bottom: 40px;
+}
+.site-footer-col {
+	flex: 1 1 220px;
+}
+.site-footer-brand p {
+	color: #c5c5c5;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	line-height: 22px;
+	margin: 14px 0 18px;
+	max-width: 320px;
+}
+.site-footer-logo {
+	font-family: 'Oswald', sans-serif;
+	font-size: 26px;
+	font-weight: 700;
+	color: #ffffff;
+	text-decoration: none;
+}
+.site-footer-logo span {
+	color: #c11325;
+}
+.site-footer-col h4 {
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin-bottom: 18px;
+}
+.site-footer-col ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.site-footer-col ul li {
+	margin-bottom: 12px;
+}
+.site-footer-col ul li a {
+	color: #c5c5c5;
+	text-decoration: none;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	transition: color .3s ease;
+}
+.site-footer-col ul li a:hover {
+	color: #c11325;
+}
+.site-footer-contact li {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	color: #c5c5c5;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+.site-footer-contact li .fa {
+	color: #c11325;
+	margin-top: 3px;
+}
+.site-footer .social {
+	display: flex;
+	gap: 10px;
+}
+.site-footer .social a {
+	height: 36px;
+	width: 36px;
+	line-height: 36px;
+	text-align: center;
+	background-color: #c11325;
+	display: inline-block;
+	transition: all .3s ease;
+	border: 1px solid transparent;
+}
+.site-footer .social a:hover {
+	background-color: transparent;
+	border-color: #ffffff;
+}
+.site-footer .social a span {
+	color: #ffffff;
+	font-size: 16px;
+}
+.site-footer-bottom {
+	border-top: 1px solid #222222;
+	padding: 18px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+.site-footer-bottom span {
+	color: #8a8a8a;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+}
+.site-footer-admin-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: #666666;
+	font-family: 'Oswald', sans-serif;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	text-decoration: none;
+	padding: 6px 14px;
+	border: 1px solid #333333;
+	transition: all .3s ease;
+}
+.site-footer-admin-link .fa {
+	font-size: 11px;
+}
+.site-footer-admin-link:hover {
+	color: #ffffff;
+	border-color: #c11325;
+	background-color: rgba(193,19,37,0.12);
+}
+
+/* ---- 404 page ---- */
+.error-page {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #000000;
+	text-align: center;
+	padding: 120px 15px 60px;
+}
+.error-page-code {
+	font-family: 'Oswald', sans-serif;
+	font-size: 120px;
+	font-weight: 700;
+	color: #c11325;
+	line-height: 1;
+	margin-bottom: 10px;
+}
+.error-page h1 {
+	color: #ffffff;
+	font-size: 26px;
+	margin-bottom: 12px;
+}
+.error-page p {
+	color: #c5c5c5;
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 26px;
+}
+.error-page .btn {
+	display: inline-block;
+	font-family: 'Oswald', sans-serif;
+	padding: 10px 34px;
+	background-color: #c11325;
+	color: #ffffff;
+	text-decoration: none;
+	border: 1px solid transparent;
+	transition: all .5s ease;
+}
+.error-page .btn:hover {
+	background-color: transparent;
+	border-color: #c11325;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 767px) {
+	.page-header {
+		padding: 130px 15px 40px;
+	}
+	.page-header h1 {
+		font-size: 30px;
+	}
+	.home-teaser {
+		flex-wrap: wrap;
+	}
+	.home-teaser-text,
+	.home-teaser-chips {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+	.stat {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+	.site-footer-bottom {
+		flex-direction: column;
+		text-align: center;
+	}
+}

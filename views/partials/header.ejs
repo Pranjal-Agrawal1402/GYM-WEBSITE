@@ -1,0 +1,20 @@
+<!-- Start Header  -->
+<header>
+	<div class="container">
+		<div class="logo">
+			<a href="/"><img src="/images/logo.png" alt="<%= site.gymName %> <%= site.gymNameAccent %> Logo" style="width: 60px; height: 60px;"><%= site.gymName %> <span><%= site.gymNameAccent %></span></a>
+		</div>
+		<a href="javascript:void(0)" class="ham-burger">
+			<span></span>
+			<span></span>
+		</a>
+		<div class="nav">
+			<ul>
+				<% site.nav.forEach(function(item) { %>
+					<li><a href="<%= item.href %>" class="<%= activeNav === item.href ? 'active' : '' %>"><%= item.label %></a></li>
+				<% }); %>
+			</ul>
+		</div>
+	</div>
+</header>
+<!-- End Header  -->

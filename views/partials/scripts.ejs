@@ -1,0 +1,47 @@
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+
+		$(".ham-burger, .nav ul li a").click(function(){
+			$(".nav").toggleClass("open")
+			$(".ham-burger").toggleClass("active");
+		})
+
+		$(".accordian-container").click(function(){
+			$(".accordian-container").children(".body").slideUp();
+			$(".accordian-container").removeClass("active")
+			$(".accordian-container").children(".head").children("span").removeClass("fa-angle-down").addClass("fa-angle-up")
+			$(this).children(".body").slideDown();
+			$(this).addClass("active")
+			$(this).children(".head").children("span").removeClass("fa-angle-up").addClass("fa-angle-down")
+		})
+
+		// Smooth-scroll only applies to in-page anchors (e.g. the hero's
+		// go-down arrow). Links to other pages behave like normal links.
+		$(".nav ul li a, .go-down").click(function(event){
+			if(this.hash !== "" && this.pathname === window.location.pathname){
+				event.preventDefault();
+				var hash = this.hash;
+				$('html,body').animate({
+					scrollTop: $(hash).offset().top - 70
+				}, 800, function(){
+					window.location.hash = hash;
+				});
+			}
+		})
+	})
+</script>
+<script src="/js/wow.min.js"></script>
+<script>
+	wow = new WOW(
+		{
+			animateClass: 'animated',
+			offset:       0,
+		}
+	);
+	wow.init();
+</script>
+<script src="/js/main.js"></script>
+</body>
+</html>

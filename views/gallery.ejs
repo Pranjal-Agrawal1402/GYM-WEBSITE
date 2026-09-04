@@ -1,0 +1,27 @@
+<%- include('partials/head', { pageTitle, metaDescription }) %>
+<%- include('partials/header', { site, activeNav }) %>
+
+<%- include('partials/page-header', {
+	eyebrow: 'Take A Look',
+	title: 'Workout Gallery',
+	subtitle: 'A look inside the gym and our training sessions.'
+}) %>
+
+<!-- Start Gallery -->
+<section class="gallery" id="gallery" style="padding-top:20px;">
+	<div class="content">
+		<% site.gallery.forEach(function(img, i) { %>
+			<div class="box wow <%= i % 2 === 0 ? 'slideInLeft' : 'slideInRight' %>">
+				<img src="/images/<%= img %>" alt="gallery" />
+			</div>
+		<% }); %>
+	</div>
+</section>
+<!-- End Gallery -->
+
+<div class="classes-cta">
+	<a href="/contact" class="btn">Come Train With Us</a>
+</div>
+
+<%- include('partials/footer', { site }) %>
+<%- include('partials/scripts') %>

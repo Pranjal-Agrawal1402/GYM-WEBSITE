@@ -1,0 +1,68 @@
+<%- include('partials/head', { pageTitle, metaDescription }) %>
+<%- include('partials/header', { site, activeNav }) %>
+
+<%- include('partials/page-header', {
+	eyebrow: 'About Us',
+	title: 'Built For Real Progress',
+	subtitle: 'Get to know the gym, the team, and what training here actually feels like.'
+}) %>
+
+<!-- Start Our Story -->
+<section class="our-story">
+	<div class="container">
+		<p class="our-story-text wow fadeIn">Titans Club started with a simple idea: fitness should feel achievable, not intimidating. We combine modern equipment, structured classes, and trainers who actually know your name to help everyone from first-timers to competitive lifters make real, measurable progress.</p>
+	</div>
+</section>
+<!-- End Our Story -->
+
+<!-- Start About -->
+<section class="about" id="about">
+	<div class="container">
+		<div class="content">
+			<% site.aboutBoxes.forEach(function(box, i) { %>
+				<div class="box wow bounceInUp" <% if (i > 0) { %>data-wow-delay="<%= i * 0.2 %>s"<% } %>>
+					<div class="inner">
+						<div class="img">
+							<img src="/images/<%= box.image %>" alt="<%= box.title %>" />
+						</div>
+						<div class="text">
+							<h4><%= box.title %></h4>
+							<p><%= box.text %></p>
+						</div>
+					</div>
+				</div>
+			<% }); %>
+		</div>
+	</div>
+</section>
+<!-- End About -->
+
+<!-- Start Stats -->
+<section class="stats-strip">
+	<div class="container">
+		<div class="stats-grid">
+			<div class="stat wow bounceInUp"><span class="stat-number">10+</span><span class="stat-label">Years Running</span></div>
+			<div class="stat wow bounceInUp" data-wow-delay="0.15s"><span class="stat-number">500+</span><span class="stat-label">Active Members</span></div>
+			<div class="stat wow bounceInUp" data-wow-delay="0.3s"><span class="stat-number">15+</span><span class="stat-label">Expert Trainers</span></div>
+			<div class="stat wow bounceInUp" data-wow-delay="0.45s"><span class="stat-number">20+</span><span class="stat-label">Classes Per Week</span></div>
+		</div>
+	</div>
+</section>
+<!-- End Stats -->
+
+<!-- Start CTA -->
+<section class="start-today">
+	<div class="container">
+		<div class="content" style="justify-content:center;">
+			<div class="box text wow slideInLeft" style="flex:0 0 100%;max-width:700px;text-align:center;margin:0 auto;">
+				<h2>Ready To Get Started?</h2>
+				<p>Come see the gym in person, meet the trainers, and find the plan that fits your goals.</p>
+				<a href="/contact" class="btn">Contact Us</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End CTA -->
+
+<%- include('partials/footer', { site }) %>
+<%- include('partials/scripts') %>

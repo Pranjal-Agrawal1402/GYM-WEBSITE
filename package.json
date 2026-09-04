@@ -1,0 +1,22 @@
+{
+  "name": "titans-club-gym-website",
+  "version": "2.0.0",
+  "description": "Titans Club gym website with a working contact form, multi-page site, and an admin dashboard for viewing enquiries.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "set-admin-password": "node scripts/set-password.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "express-session": "^1.18.0"
+  }
+}

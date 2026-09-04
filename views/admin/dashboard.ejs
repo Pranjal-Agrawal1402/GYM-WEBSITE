@@ -1,0 +1,112 @@
+<%- include('../partials/admin-head', { pageTitle }) %>
+
+<div class="admin-topbar">
+	<div class="admin-topbar-inner">
+		<a href="/" class="admin-auth-logo admin-topbar-logo">
+			<img src="/images/logo.png" alt="<%= site.gymName %> logo">
+			<span><%= site.gymName %> <em><%= site.gymNameAccent %></em></span>
+		</a>
+		<div class="admin-topbar-right">
+			<span class="admin-topbar-user">Logged in as <strong><%= adminUsername %></strong></span>
+			<a href="/" class="admin-topbar-link">View Site</a>
+			<form method="POST" action="/admin/logout" class="admin-inline-form">
+				<button type="submit" class="admin-btn admin-btn-outline">Log Out</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="admin-container">
+	<h1 class="admin-page-title">Contact Enquiries</h1>
+
+	<% if (flash) { %>
+		<div class="form-status visible <%= flash.type %>"><%= flash.message %></div>
+	<% } %>
+
+	<div class="admin-stats-grid">
+		<div class="admin-stat-card">
+			<span class="admin-stat-number"><%= stats.total %></span>
+			<span class="admin-stat-label">Total Enquiries</span>
+		</div>
+		<div class="admin-stat-card admin-stat-card-accent">
+			<span class="admin-stat-number"><%= stats.unread %></span>
+			<span class="admin-stat-label">Unread</span>
+		</div>
+		<div class="admin-stat-card">
+			<span class="admin-stat-number"><%= stats.thisWeek %></span>
+			<span class="admin-stat-label">This Week</span>
+		</div>
+		<div class="admin-stat-card">
+			<span class="admin-stat-number"><%= stats.withPlanInterest %></span>
+			<span class="admin-stat-label">Plan Interest</span>
+		</div>
+	</div>
+
+	<div class="admin-toolbar">
+		<input type="text" id="admin-search" placeholder="Search by name, email, mobile, or message..." autocomplete="off">
+		<span id="admin-search-count" class="admin-toolbar-count"></span>
+		<a href="/admin/entries/export.csv" class="admin-btn admin-btn-outline admin-toolbar-export">Export CSV</a>
+	</div>
+
+	<% if (entries.length === 0) { %>
+		<div class="admin-empty-state">
+			<p>No enquiries yet.</p>
+			<p>Once a visitor submits the contact form, it will show up here.</p>
+		</div>
+	<% } else { %>
+		<div class="admin-table-wrap">
+			<table class="admin-table" id="admin-entries-table">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Name</th>
+						<th>Contact</th>
+						<th>Plan</th>
+						<th>Message</th>
+						<th>Received</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% entries.forEach(function(entry) { %>
+						<tr class="<%= entry.read ? '' : 'is-unread' %>"
+							data-search="<%= [entry.name, entry.email, entry.mobile, entry.plan, entry.message].join(' ').toLowerCase() %>">
+							<td data-label="Status">
+								<span class="admin-status-dot <%= entry.read ? 'read' : 'unread' %>" title="<%= entry.read ? 'Read' : 'Unread' %>"></span>
+							</td>
+							<td data-label="Name"><%= entry.name %></td>
+							<td data-label="Contact">
+								<a href="mailto:<%= entry.email %>"><%= entry.email %></a>
+								<% if (entry.mobile) { %><br><a href="tel:<%= entry.mobile %>"><%= entry.mobile %></a><% } %>
+							</td>
+							<td data-label="Plan"><%= entry.plan ? entry.plan : '—' %></td>
+							<td data-label="Message" class="admin-message-cell">
+								<% if (entry.message.length > 80) { %>
+									<details>
+										<summary><%= entry.message.slice(0, 80) %>&hellip;</summary>
+										<p><%= entry.message %></p>
+									</details>
+								<% } else { %>
+									<%= entry.message %>
+								<% } %>
+							</td>
+							<td data-label="Received"><%= new Date(entry.submittedAt).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }) %></td>
+							<td data-label="Actions" class="admin-actions-cell">
+								<form method="POST" action="/admin/entries/<%= entry.id %>/<%= entry.read ? 'unread' : 'read' %>" class="admin-inline-form">
+									<button type="submit" class="admin-btn admin-btn-small"><%= entry.read ? 'Mark Unread' : 'Mark Read' %></button>
+								</form>
+								<form method="POST" action="/admin/entries/<%= entry.id %>/delete" class="admin-inline-form" onsubmit="return confirm('Delete this entry? This cannot be undone.');">
+									<button type="submit" class="admin-btn admin-btn-small admin-btn-danger">Delete</button>
+								</form>
+							</td>
+						</tr>
+					<% }); %>
+				</tbody>
+			</table>
+		</div>
+	<% } %>
+</div>
+
+<script src="/js/admin.js"></script>
+</body>
+</html>

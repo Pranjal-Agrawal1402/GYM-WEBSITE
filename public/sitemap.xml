@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace https://your-domain-here.com with your real deployed domain before going live. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url><loc>https://your-domain-here.com/</loc></url>
+	<url><loc>https://your-domain-here.com/about</loc></url>
+	<url><loc>https://your-domain-here.com/services</loc></url>
+	<url><loc>https://your-domain-here.com/classes</loc></url>
+	<url><loc>https://your-domain-here.com/schedule</loc></url>
+	<url><loc>https://your-domain-here.com/pricing</loc></url>
+	<url><loc>https://your-domain-here.com/gallery</loc></url>
+	<url><loc>https://your-domain-here.com/contact</loc></url>
+</urlset>

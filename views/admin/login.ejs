@@ -1,0 +1,31 @@
+<%- include('../partials/admin-head', { pageTitle }) %>
+
+<div class="admin-auth-screen">
+	<div class="admin-auth-card">
+		<a href="/" class="admin-auth-logo">
+			<img src="/images/logo.png" alt="<%= site.gymName %> logo">
+			<span><%= site.gymName %> <em><%= site.gymNameAccent %></em></span>
+		</a>
+		<h1>Staff Login</h1>
+		<p class="admin-auth-sub">Sign in to view contact form enquiries.</p>
+
+		<% if (flash && flash.type === 'error') { %>
+			<div class="form-status visible error"><%= flash.message %></div>
+		<% } %>
+
+		<form method="POST" action="/admin/login" class="admin-auth-form">
+			<label for="username">Username</label>
+			<input type="text" id="username" name="username" autocomplete="username" required autofocus>
+
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" autocomplete="current-password" required>
+
+			<button type="submit">Log In</button>
+		</form>
+
+		<a href="/" class="admin-auth-back">&larr; Back to website</a>
+	</div>
+</div>
+
+</body>
+</html>

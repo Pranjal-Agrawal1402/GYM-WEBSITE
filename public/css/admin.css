@@ -1,0 +1,448 @@
+/* ==========================================================================
+   Admin panel — login screen + dashboard.
+   Reuses the site's black/red/Oswald identity but laid out as a utility
+   screen rather than a marketing page.
+   ========================================================================== */
+
+.admin-body {
+	background-color: #121212;
+	margin: 0;
+}
+
+/* ---- Shared: logo lockup ---- */
+.admin-auth-logo {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	text-decoration: none;
+	color: #ffffff;
+	font-family: 'Oswald', sans-serif;
+	font-size: 20px;
+	font-weight: 600;
+}
+.admin-auth-logo img {
+	width: 40px;
+	height: 40px;
+}
+.admin-auth-logo em {
+	font-style: normal;
+	color: #c11325;
+}
+
+/* ---- Login screen ---- */
+.admin-auth-screen {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 30px 15px;
+	background-image: radial-gradient(circle at 50% 0%, rgba(193,19,37,0.18), rgba(18,18,18,0) 55%);
+}
+.admin-auth-card {
+	width: 100%;
+	max-width: 380px;
+	background-color: #1c1c1c;
+	border: 1px solid #2e2e2e;
+	padding: 40px 32px;
+	text-align: center;
+}
+.admin-auth-card h1 {
+	font-family: 'Oswald', sans-serif;
+	color: #ffffff;
+	font-size: 24px;
+	margin: 22px 0 6px;
+}
+.admin-auth-sub {
+	font-family: 'Open Sans', sans-serif;
+	color: #9a9a9a;
+	font-size: 14px;
+	margin: 0 0 22px;
+}
+.admin-auth-form {
+	text-align: left;
+}
+.admin-auth-form label {
+	display: block;
+	font-family: 'Oswald', sans-serif;
+	font-size: 12px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: #9a9a9a;
+	margin: 16px 0 6px;
+}
+.admin-auth-form input {
+	width: 100%;
+	box-sizing: border-box;
+	background-color: #121212;
+	border: 1px solid #333333;
+	color: #ffffff;
+	padding: 12px 14px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+.admin-auth-form input:focus {
+	outline: none;
+	border-color: #c11325;
+}
+.admin-auth-form button {
+	width: 100%;
+	margin-top: 22px;
+	padding: 12px 14px;
+	background-color: #c11325;
+	color: #ffffff;
+	border: 1px solid transparent;
+	font-family: 'Oswald', sans-serif;
+	font-size: 15px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all .3s ease;
+}
+.admin-auth-form button:hover {
+	background-color: transparent;
+	border-color: #c11325;
+}
+.admin-auth-back {
+	display: inline-block;
+	margin-top: 22px;
+	color: #666666;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	text-decoration: none;
+}
+.admin-auth-back:hover {
+	color: #c5c5c5;
+}
+
+/* ---- Dashboard top bar ---- */
+.admin-topbar {
+	background-color: #000000;
+	border-bottom: 1px solid #262626;
+}
+.admin-topbar-inner {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 14px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+.admin-topbar-logo img {
+	width: 32px;
+	height: 32px;
+}
+.admin-topbar-logo span {
+	font-size: 16px;
+}
+.admin-topbar-right {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+.admin-topbar-user {
+	color: #9a9a9a;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+}
+.admin-topbar-user strong {
+	color: #ffffff;
+}
+.admin-topbar-link {
+	color: #c5c5c5;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	text-decoration: none;
+	border-bottom: 1px dotted #555555;
+}
+.admin-topbar-link:hover {
+	color: #ffffff;
+}
+
+/* ---- Buttons ---- */
+.admin-btn {
+	display: inline-block;
+	font-family: 'Oswald', sans-serif;
+	font-size: 12px;
+	letter-spacing: .5px;
+	text-transform: uppercase;
+	padding: 9px 16px;
+	border: 1px solid #333333;
+	background-color: transparent;
+	color: #ffffff;
+	cursor: pointer;
+	text-decoration: none;
+	transition: all .25s ease;
+	white-space: nowrap;
+}
+.admin-btn:hover {
+	border-color: #c11325;
+	color: #ffffff;
+	background-color: rgba(193,19,37,0.15);
+}
+.admin-btn-outline {
+	background-color: transparent;
+}
+.admin-btn-small {
+	padding: 6px 10px;
+	font-size: 11px;
+}
+.admin-btn-danger:hover {
+	border-color: #c11325;
+	background-color: #c11325;
+}
+.admin-inline-form {
+	display: inline-block;
+	margin: 0;
+}
+
+/* ---- Container / page title ---- */
+.admin-container {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 30px 20px 60px;
+}
+.admin-page-title {
+	font-family: 'Oswald', sans-serif;
+	color: #ffffff;
+	font-size: 26px;
+	font-weight: 500;
+	margin: 0 0 22px;
+}
+.admin-container .form-status {
+	max-width: none;
+}
+
+/* ---- Stat cards (echoes the pricing page's price-tag treatment) ---- */
+.admin-stats-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 14px;
+	margin-bottom: 28px;
+}
+.admin-stat-card {
+	background-color: #1c1c1c;
+	border: 1px solid #2e2e2e;
+	padding: 20px;
+	text-align: center;
+}
+.admin-stat-card-accent {
+	border-color: #c11325;
+}
+.admin-stat-number {
+	display: block;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: 36px;
+	color: #c11325;
+	line-height: 1.1;
+}
+.admin-stat-label {
+	display: block;
+	margin-top: 6px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 12px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: #9a9a9a;
+}
+
+/* ---- Toolbar ---- */
+.admin-toolbar {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin-bottom: 16px;
+	flex-wrap: wrap;
+}
+.admin-toolbar #admin-search {
+	flex: 1 1 280px;
+	background-color: #1c1c1c;
+	border: 1px solid #333333;
+	color: #ffffff;
+	padding: 10px 14px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+.admin-toolbar #admin-search:focus {
+	outline: none;
+	border-color: #c11325;
+}
+.admin-toolbar-count {
+	color: #777777;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	white-space: nowrap;
+}
+.admin-toolbar-export {
+	margin-left: auto;
+}
+
+/* ---- Empty state ---- */
+.admin-empty-state {
+	background-color: #1c1c1c;
+	border: 1px dashed #333333;
+	padding: 50px 20px;
+	text-align: center;
+	color: #9a9a9a;
+	font-family: 'Open Sans', sans-serif;
+}
+.admin-empty-state p:first-child {
+	color: #ffffff;
+	font-family: 'Oswald', sans-serif;
+	font-size: 18px;
+	margin-bottom: 8px;
+}
+
+/* ---- Table ---- */
+.admin-table-wrap {
+	background-color: #1c1c1c;
+	border: 1px solid #2e2e2e;
+	overflow-x: auto;
+}
+.admin-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13.5px;
+	min-width: 780px;
+}
+.admin-table thead th {
+	text-align: left;
+	font-family: 'Oswald', sans-serif;
+	font-size: 12px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: #9a9a9a;
+	padding: 14px 16px;
+	border-bottom: 1px solid #2e2e2e;
+	background-color: #171717;
+}
+.admin-table tbody td {
+	padding: 14px 16px;
+	border-bottom: 1px solid #262626;
+	color: #e0e0e0;
+	vertical-align: top;
+}
+.admin-table tbody tr:last-child td {
+	border-bottom: none;
+}
+.admin-table tbody tr.is-unread {
+	background-color: rgba(193,19,37,0.05);
+}
+.admin-table tbody tr.is-hidden {
+	display: none;
+}
+.admin-table a {
+	color: #c5c5c5;
+}
+.admin-table a:hover {
+	color: #ffffff;
+}
+.admin-status-dot {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #3ba55d;
+}
+.admin-status-dot.unread {
+	background-color: #c11325;
+	box-shadow: 0 0 0 3px rgba(193,19,37,0.25);
+}
+.admin-message-cell {
+	max-width: 320px;
+}
+.admin-message-cell details summary {
+	cursor: pointer;
+	color: #e0e0e0;
+}
+.admin-message-cell details summary::marker {
+	color: #c11325;
+}
+.admin-message-cell details p {
+	margin: 8px 0 0;
+	color: #b5b5b5;
+}
+.admin-actions-cell {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+	.admin-stats-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media (max-width: 700px) {
+	.admin-table-wrap {
+		overflow-x: visible;
+		border: none;
+		background-color: transparent;
+	}
+	.admin-table {
+		min-width: 0;
+	}
+	.admin-table thead {
+		display: none;
+	}
+	.admin-table tbody tr {
+		display: block;
+		background-color: #1c1c1c;
+		border: 1px solid #2e2e2e;
+		margin-bottom: 14px;
+	}
+	.admin-table tbody td {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 14px;
+		padding: 10px 14px;
+		border-bottom: 1px solid #262626;
+	}
+	.admin-table tbody tr td:last-child {
+		border-bottom: none;
+	}
+	.admin-table td::before {
+		content: attr(data-label);
+		font-family: 'Oswald', sans-serif;
+		font-size: 11px;
+		letter-spacing: .5px;
+		text-transform: uppercase;
+		color: #9a9a9a;
+		flex-shrink: 0;
+	}
+	.admin-table td[data-label="Contact"] {
+		text-align: right;
+	}
+	.admin-message-cell,
+	.admin-actions-cell {
+		flex-direction: column;
+		align-items: flex-start !important;
+		max-width: none;
+	}
+	.admin-message-cell::before,
+	.admin-actions-cell::before {
+		margin-bottom: 6px;
+	}
+	.admin-actions-cell {
+		flex-direction: row !important;
+		justify-content: flex-start !important;
+		flex-wrap: wrap;
+	}
+	.admin-actions-cell::before {
+		width: 100%;
+		margin-bottom: 8px;
+	}
+}
+@media (max-width: 640px) {
+	.admin-auth-card {
+		padding: 30px 22px;
+	}
+	.admin-toolbar-export {
+		margin-left: 0;
+	}
+}

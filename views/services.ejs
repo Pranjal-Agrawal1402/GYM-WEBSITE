@@ -1,0 +1,39 @@
+<%- include('partials/head', { pageTitle, metaDescription }) %>
+<%- include('partials/header', { site, activeNav }) %>
+
+<%- include('partials/page-header', {
+	eyebrow: 'What We Offer',
+	title: 'Our Services',
+	subtitle: 'Everything you need under one roof — cardio, strength, classes, and personal support.'
+}) %>
+
+<!-- Start Service -->
+<section class="service" id="service">
+	<div class="container">
+		<div class="content">
+			<div class="text box wow slideInLeft">
+				<h2>Services</h2>
+				<p>Our fitness services are designed to help you become stronger, healthier, and more confident. With professional guidance, modern equipment, and personalized workout programs, we provide everything you need to stay active and reach your fitness goals.</p>
+				<p>Whether you want to improve your stamina, build muscle, lose weight, or simply maintain a healthy lifestyle, our experienced trainers are here to support you every step of the way. Choose the service that best fits your goals and start your fitness journey today.</p>
+				<a href="/contact" class="btn">Start Now</a>
+			</div>
+			<div class="accordian box wow slideInRight">
+				<% site.services.forEach(function(service, i) { %>
+					<div class="accordian-container <%= i === 0 ? 'active' : '' %>">
+						<div class="head">
+							<h4><%= service.title %></h4>
+							<span class="fa <%= i === 0 ? 'fa-angle-down' : 'fa-angle-up' %>"></span>
+						</div>
+						<div class="body">
+							<p><%= service.text %></p>
+						</div>
+					</div>
+				<% }); %>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Service -->
+
+<%- include('partials/footer', { site }) %>
+<%- include('partials/scripts') %>

@@ -1,0 +1,6 @@
+node_modules/
+.env
+npm-debug.log*
+
+# Runtime data — contains real visitor contact details, keep it out of git
+data/entries.json

@@ -1,0 +1,168 @@
+<%- include('partials/head', { pageTitle, metaDescription }) %>
+<%- include('partials/header', { site, activeNav }) %>
+
+<!-- Start Home -->
+<section class="home wow flash" id="home">
+	<div class="container">
+		<h1 class="wow slideInLeft" data-wow-delay="1s">It's <span>gym</span> time. Let's go</h1>
+		<h1 class="wow slideInRight" data-wow-delay="1s">We are ready to <span>fit you</span></h1>
+	</div>
+	<a href="#highlights" class="go-down">
+		<i class="fa fa-angle-down" aria-hidden="true"></i>
+	</a>
+</section>
+<!-- End Home -->
+
+<!-- Start About -->
+<section class="about" id="highlights">
+	<div class="container">
+		<div class="content">
+			<% site.aboutBoxes.forEach(function(box, i) { %>
+				<div class="box wow bounceInUp" <% if (i > 0) { %>data-wow-delay="<%= i * 0.2 %>s"<% } %>>
+					<div class="inner">
+						<div class="img">
+							<img src="/images/<%= box.image %>" alt="<%= box.title %>" />
+						</div>
+						<div class="text">
+							<h4><%= box.title %></h4>
+							<p><%= box.text %></p>
+						</div>
+					</div>
+				</div>
+			<% }); %>
+		</div>
+		<div class="section-cta">
+			<a href="/about" class="btn">More About Us</a>
+		</div>
+	</div>
+</section>
+<!-- End About -->
+
+<!-- Start Services Teaser -->
+<section class="service">
+	<div class="container">
+		<div class="home-teaser">
+			<div class="home-teaser-text wow slideInLeft">
+				<h2>Services</h2>
+				<p><%= site.services[0].text %></p>
+				<a href="/services" class="btn">Explore Services</a>
+			</div>
+			<div class="home-teaser-chips wow slideInRight">
+				<% site.services.forEach(function(s) { %>
+					<div class="chip"><%= s.title %></div>
+				<% }); %>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Services Teaser -->
+
+<!-- Start Classes -->
+<section class="classes" id="classes">
+	<div class="container">
+		<div class="content">
+			<div class="box img wow slideInLeft">
+				<img src="/images/class2.png" alt="classes" />
+			</div>
+			<div class="box text wow slideInRight">
+				<h2>Our Classes</h2>
+				<p>Discover a variety of fitness classes designed to keep you active, motivated, and progressing toward your goals. Whether you want to improve flexibility, build strength, burn calories, or enhance endurance, our instructor-led classes offer an enjoyable and effective way to stay fit.</p>
+				<div class="class-items">
+					<% site.classes.forEach(function(item, i) { %>
+						<div class="item wow bounceInUp">
+							<% if (i % 2 === 0) { %>
+								<div class="item-img">
+									<img src="/images/<%= item.image %>" alt="<%= item.name %>" />
+									<div class="price"><%= item.price %></div>
+								</div>
+								<div class="item-text">
+									<h4><%= item.name %></h4>
+									<p><%= item.text %></p>
+									<a href="/classes">Get Details</a>
+								</div>
+							<% } else { %>
+								<div class="item-text">
+									<h4><%= item.name %></h4>
+									<p><%= item.text %></p>
+									<a href="/classes">Get Details</a>
+								</div>
+								<div class="item-img">
+									<img src="/images/<%= item.image %>" alt="<%= item.name %>" />
+									<div class="price"><%= item.price %></div>
+								</div>
+							<% } %>
+						</div>
+					<% }); %>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Classes -->
+
+<!-- Start Today -->
+<section class="start-today">
+	<div class="container">
+		<div class="content">
+			<div class="box text wow slideInLeft">
+				<h2>Start Your Training Today</h2>
+				<p>Take the first step toward a stronger and healthier you. Our professional trainers and supportive environment make it easier to stay motivated and build a workout routine that fits your goals. Start today and turn your fitness goals into lasting results.</p>
+				<a href="/contact" class="btn">Start Now</a>
+			</div>
+			<div class="box img wow slideInRight">
+				<img src="/images/gallery4.jpg" alt="start today" />
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Start Today -->
+
+<!-- Start Price -->
+<section class="price-package" id="price">
+	<div class="container">
+		<h2>Choose Your Package</h2>
+		<p class="title-p">Choose the membership plan that fits your fitness goals and lifestyle. Get access to professional training, modern equipment, and dedicated fitness support to help you become stronger, healthier, and more confident.</p>
+		<div class="content">
+			<% site.plans.forEach(function(plan, i) { %>
+				<div class="box wow bounceInUp" <% if (i > 0) { %>data-wow-delay="<%= i * 0.2 %>s"<% } %>>
+					<div class="inner">
+						<div class="price-tag"><%= plan.price %></div>
+						<div class="img">
+							<img src="/images/<%= plan.image %>" alt="<%= plan.name %>" />
+						</div>
+						<div class="text">
+							<h3><%= plan.tagline %></h3>
+							<% plan.features.forEach(function(feature) { %>
+								<p><%= feature %></p>
+							<% }); %>
+							<a href="/contact?plan=<%= encodeURIComponent(plan.name) %>" class="btn">Join Now</a>
+						</div>
+					</div>
+				</div>
+			<% }); %>
+		</div>
+		<div class="section-cta">
+			<a href="/pricing" class="btn-outline">Compare All Plans</a>
+		</div>
+	</div>
+</section>
+<!-- End Price -->
+
+<!-- Start Gallery -->
+<section class="gallery" id="gallery">
+	<h2>Workout Gallery</h2>
+	<div class="content">
+		<% site.gallery.forEach(function(img, i) { %>
+			<div class="box wow <%= i % 2 === 0 ? 'slideInLeft' : 'slideInRight' %>">
+				<img src="/images/<%= img %>" alt="gallery" />
+			</div>
+		<% }); %>
+	</div>
+	<div class="section-cta">
+		<a href="/gallery" class="btn">View Full Gallery</a>
+	</div>
+</section>
+<!-- End Gallery -->
+
+<%- include('partials/footer', { site }) %>
+<%- include('partials/scripts') %>

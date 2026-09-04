@@ -1,0 +1,14 @@
+<%- include('partials/head', { pageTitle: `Page Not Found — ${site.gymName} ${site.gymNameAccent}`, metaDescription: 'The page you requested could not be found.' }) %>
+<%- include('partials/header', { site, activeNav: '' }) %>
+
+<section class="error-page">
+	<div class="container">
+		<div class="error-page-code">404</div>
+		<h1>Page Not Found</h1>
+		<p>The page you're looking for doesn't exist or may have moved.</p>
+		<a href="/" class="btn">Back To Home</a>
+	</div>
+</section>
+
+<%- include('partials/footer', { site }) %>
+<%- include('partials/scripts') %>
